@@ -8,85 +8,118 @@
     <title>Gennaro Cosimo Cesaria | Profilo professionale</title>
     <style>
         :root {
-            --ink: #17283b;
-            --paper: #f5f3ee;
+            --ink: #142438;
+            --ink-soft: #253b52;
+            --paper: #f7f6f2;
             --surface: #fffefa;
-            --text: #26364a;
-            --muted: #657386;
-            --accent: #b48b55;
-            --line: rgba(23, 40, 59, .12);
+            --text: #334356;
+            --muted: #687789;
+            --accent: #b38a52;
+            --accent-pale: #eee4d3;
+            --line: rgba(20, 36, 56, .12);
             --serif: Georgia, 'Times New Roman', serif;
             --sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --shadow: 0 18px 50px rgba(17, 35, 54, .08);
         }
         *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
-        body { margin: 0; color: var(--text); background: var(--paper); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+        body { margin: 0; color: var(--text); background: var(--paper); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
         a { color: inherit; text-decoration: none; }
-        .container { width: min(1080px, calc(100% - 40px)); margin-inline: auto; }
-        nav { position: sticky; top: 0; z-index: 5; background: rgba(16, 28, 44, .96); border-bottom: 1px solid rgba(255,255,255,.1); }
-        .nav-container { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .logo { color: white; font: 1.1rem var(--serif); }
-        .nav-links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: rgba(255,255,255,.82); font-size: .88rem; }
+        .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+        nav { position: sticky; top: 0; z-index: 5; background: rgba(16, 28, 44, .97); border-bottom: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(12px); }
+        .nav-container { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .logo { color: white; font: 1.12rem var(--serif); letter-spacing: .02em; }
+        .nav-links { display: flex; gap: 27px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: rgba(255,255,255,.78); font-size: .85rem; transition: color .2s ease; }
         .nav-links a:hover, .nav-links a:focus-visible { color: #e4c99f; }
-        #hero { color: white; background: radial-gradient(ellipse at 82% 25%, rgba(180,139,85,.22), transparent 34%), linear-gradient(125deg, #101c2c, #24394e); padding: 76px 0; }
-        .hero-layout { display: grid; grid-template-columns: 1.4fr .7fr; align-items: center; gap: 64px; }
-        .eyebrow { color: #d7b986; font-size: .76rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
-        h1 { margin: 14px 0; font: 500 clamp(2.6rem, 6vw, 4.7rem)/1.08 var(--serif); letter-spacing: -.03em; }
-        .hero-subtitle { color: #e3c89e; font-size: 1.08rem; }
-        .hero-description { max-width: 650px; color: rgba(255,255,255,.78); }
-        .cta { display: inline-block; margin-top: 12px; padding: 11px 22px; border: 1px solid #d5b887; color: white; }
-        .cta:hover { color: var(--ink); background: #e4c99f; }
-        .profile-frame { width: min(100%, 300px); aspect-ratio: 1; margin: auto; padding: 9px; border: 1px solid rgba(228,201,159,.65); border-radius: 50%; box-shadow: 0 0 0 12px rgba(255,255,255,.035), 0 22px 65px rgba(0,0,0,.24); }
+        #hero { position: relative; overflow: hidden; color: white; background: radial-gradient(ellipse at 82% 25%, rgba(179,138,82,.2), transparent 34%), linear-gradient(125deg, #101c2c 0%, #1c3047 68%, #263c52 100%); padding: 96px 0 105px; }
+        .hero-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(250px, .7fr); align-items: center; gap: 72px; }
+        .eyebrow { color: #d7b986; font-size: .73rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+        h1 { max-width: 720px; margin: 16px 0 15px; font: 500 clamp(2.9rem, 6vw, 5rem)/1.04 var(--serif); letter-spacing: -.035em; }
+        .hero-subtitle { margin: 0 0 23px; color: #e3c89e; font-size: 1.08rem; letter-spacing: .02em; }
+        .hero-description { max-width: 660px; margin: 0 0 29px; color: rgba(255,255,255,.76); font-size: 1rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+        .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 21px; border: 1px solid #d5b887; color: #fff; font: 600 .87rem var(--sans); letter-spacing: .015em; cursor: pointer; transition: color .2s ease, background .2s ease, transform .2s ease; }
+        .button:hover { color: var(--ink); background: #e4c99f; transform: translateY(-2px); }
+        .button-secondary { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.88); }
+        .button-secondary:hover { border-color: #e4c99f; }
+        .button svg { width: 17px; height: 17px; }
+        .profile-frame { width: min(100%, 305px); aspect-ratio: 1; margin: auto; padding: 10px; border: 1px solid rgba(228,201,159,.62); border-radius: 50%; box-shadow: 0 0 0 13px rgba(255,255,255,.035), 0 24px 70px rgba(0,0,0,.24); }
         .profile-photo { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; }
-        section.content-section { padding: 78px 0; }
-        .section-heading { margin: 0 auto 38px; text-align: center; }
+        section.content-section { padding: 92px 0; }
+        .section-heading { margin: 0 auto 46px; text-align: center; }
         .section-heading .eyebrow { color: var(--accent); }
-        .section-title { margin: 8px 0 0; color: var(--ink); font: 500 clamp(2rem, 4vw, 2.8rem)/1.2 var(--serif); }
-        .section-title::after { content: ''; display: block; width: 46px; height: 2px; margin: 16px auto 0; background: var(--accent); }
+        .section-title { margin: 9px 0 0; color: var(--ink); font: 500 clamp(2.1rem, 4vw, 3rem)/1.16 var(--serif); letter-spacing: -.025em; }
+        .section-title::after { content: ''; display: block; width: 48px; height: 2px; margin: 19px auto 0; background: var(--accent); }
         .bio-copy { max-width: 850px; margin: auto; }
-        .bio-text { color: #526174; }
-        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
-        .badge { padding: 7px 12px; border: 1px solid #ddcfb9; background: var(--surface); color: #66543b; font-size: .82rem; }
+        .bio-text { margin: 0 0 20px; color: #536276; font-size: 1rem; }
+        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 31px; }
+        .badge { padding: 7px 13px; border: 1px solid #ddcfb9; background: rgba(255,254,250,.8); color: #66543b; font-size: .79rem; }
         #skills { background: var(--surface); }
-        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .skill-card { padding: 24px 20px; border: 1px solid var(--line); background: white; }
-        .skill-icon { color: var(--accent); font-size: 1.6rem; }
-        .skill-card h3, .timeline h3 { color: var(--ink); font-family: var(--serif); }
-        .skill-card p, .timeline p { color: var(--muted); font-size: .9rem; }
-        .timeline { max-width: 850px; margin: auto; border-left: 1px solid #d7c8b0; padding-left: 28px; }
-        .timeline-item { position: relative; padding: 0 0 24px; }
-        .timeline-item::before { content: ''; position: absolute; top: 8px; left: -33px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--paper); }
-        .timeline-date { color: #9a7541; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-        .timeline h3 { margin: 4px 0; }
+        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+        .skill-card { min-height: 225px; padding: 25px 22px; border: 1px solid var(--line); background: #fff; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .skill-card:hover { transform: translateY(-4px); border-color: #c9ad82; box-shadow: var(--shadow); }
+        .skill-icon { margin-bottom: 13px; color: var(--accent); font-size: 1.55rem; }
+        .skill-card h3, .timeline h3 { margin: 0 0 9px; color: var(--ink); font: 600 1.15rem var(--serif); }
+        .skill-card p, .timeline p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.7; }
+        .timeline { position: relative; max-width: 880px; margin: auto; }
+        .timeline::before { content: ''; position: absolute; top: 7px; bottom: 8px; left: 8px; width: 1px; background: #d7c8b0; }
+        .timeline-item { position: relative; padding: 0 0 28px 37px; }
+        .timeline-item::before { content: ''; position: absolute; top: 8px; left: 4px; width: 9px; height: 9px; border: 2px solid var(--paper); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+        .timeline-date { margin-bottom: 5px; color: #9a7541; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
         #contact { color: white; background: var(--ink); }
         #contact .section-title { color: white; }
         #contact .eyebrow { color: #e2c89f; }
-        .contact-container { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-        .contact-text, .location, .phone { color: rgba(255,255,255,.72); }
-        .email-link { color: white; font: 1.45rem var(--serif); }
+        .contact-container { display: flex; flex-direction: column; align-items: center; gap: 13px; text-align: center; }
+        .contact-text { max-width: 660px; margin: 0 0 8px; color: rgba(255,255,255,.72); }
+        .email-link { color: white; font: 500 clamp(1.25rem, 3vw, 1.7rem) var(--serif); transition: color .2s ease; }
         .email-link:hover { color: #e2c89f; }
-        .pec-text { color: rgba(255,255,255,.75); font-size: .9rem; }
-        footer { padding: 20px; color: rgba(255,255,255,.58); background: #101c2c; text-align: center; font-size: .82rem; }
+        .pec-text, .phone { color: rgba(255,255,255,.75); font-size: .88rem; }
+        .location { margin: 5px 0 0; color: rgba(255,255,255,.65); font-size: .87rem; }
+        footer { padding: 22px; border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.56); background: #101c2c; text-align: center; font-size: .8rem; }
         footer p { margin: 0; }
-        @media (max-width: 800px) {
-            .hero-layout { grid-template-columns: 1fr; gap: 38px; text-align: center; }
+        @media (max-width: 850px) {
+            .hero-layout { grid-template-columns: 1fr; gap: 45px; text-align: center; }
+            #hero { padding: 76px 0 82px; }
             .hero-description { margin-inline: auto; }
-            .profile-frame { width: 230px; }
+            .hero-actions { justify-content: center; }
+            .profile-frame { width: 245px; }
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 560px) {
-            .container { width: min(100% - 32px, 1080px); }
-            .nav-container { min-height: 62px; flex-wrap: wrap; justify-content: center; padding: 10px 0; }
-            .logo { width: 100%; text-align: center; }
-            .nav-links { gap: 14px; }
-            .nav-links a { font-size: .76rem; }
-            #hero { padding: 55px 0; }
-            section.content-section { padding: 60px 0; }
+        @media (max-width: 600px) {
+            .container { width: min(100% - 34px, 1120px); }
+            .nav-container { min-height: 65px; flex-wrap: wrap; justify-content: center; padding: 8px 0; }
+            .logo { width: 100%; text-align: center; font-size: 1rem; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: .74rem; }
+            section.content-section { padding: 68px 0; }
+            .section-heading { margin-bottom: 34px; }
             .skills-grid { grid-template-columns: 1fr; }
-            .email-link { font-size: 1.2rem; }
+            .skill-card { min-height: 0; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .button { width: 100%; }
         }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        @media print {
+            @page { margin: 16mm; }
+            body { color: #26364a; background: #fff; font-size: 10pt; }
+            nav, .hero-actions, footer { display: none !important; }
+            #hero { padding: 15mm 0 10mm; color: #142438; background: #fff; border-bottom: 1px solid #ddd; }
+            .hero-layout { grid-template-columns: 1fr 40mm; gap: 12mm; }
+            .eyebrow, .hero-subtitle { color: #8a693b; }
+            .hero-description { color: #46566a; }
+            .profile-frame { width: 38mm; box-shadow: none; }
+            section.content-section { padding: 10mm 0; break-inside: auto; }
+            .section-heading { margin-bottom: 7mm; }
+            .section-title, .skill-card h3, .timeline h3 { color: #142438; }
+            #skills, #contact { color: #26364a; background: #fff; }
+            #contact .section-title { color: #142438; }
+            #contact .eyebrow { color: #8a693b; }
+            .contact-text, .email-link, .pec-text, .phone, .location { color: #46566a; }
+            .skill-card, .timeline-item { break-inside: avoid; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            a { text-decoration: none; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
     </style>
 </head>
 <body>
@@ -103,12 +136,18 @@
     </nav>
     <header id="hero">
         <div class="container hero-layout">
-            <div>
+            <div class="hero-content">
                 <span class="eyebrow">Profilo professionale</span>
                 <h1>Gennaro Cosimo Cesaria</h1>
                 <p class="hero-subtitle">Vice Comandante della Polizia Locale · Sociologo</p>
                 <p class="hero-description">Elevata Qualificazione Professionale nell'Amministrazione Pubblica. Coniugo l'esperienza sul campo nella sicurezza e vigilanza urbana con solide competenze sociologiche, analisi delle dinamiche sociali e innovazione digitale applicata alla Pubblica Amministrazione.</p>
-                <a href="#contact" class="cta">Entra in contatto</a>
+                <div class="hero-actions">
+                    <a href="#contact" class="button">Entra in contatto</a>
+                    <button class="button button-secondary" type="button" onclick="window.print()" aria-label="Stampa o salva il profilo in PDF">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 17v3h14v-3"/></svg>
+                        Scarica il profilo in PDF
+                    </button>
+                </div>
             </div>
             <div class="profile-frame">
                 <img class="profile-photo" src="./FB_IMG_1780564043564.jpg" alt="Foto profilo di Gennaro Cosimo Cesaria">
