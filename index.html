@@ -9,162 +9,89 @@
     <style>
         :root {
             --ink: #17283b;
-            --ink-soft: #263a50;
             --paper: #f5f3ee;
             --surface: #fffefa;
             --text: #26364a;
             --muted: #657386;
             --accent: #b48b55;
-            --accent-light: #e8dcc8;
             --line: rgba(23, 40, 59, .12);
             --serif: Georgia, 'Times New Roman', serif;
             --sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --shadow: 0 18px 50px rgba(17, 35, 54, .09);
         }
-
         *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-        body {
-            margin: 0;
-            color: var(--text);
-            background: var(--paper);
-            font-family: var(--sans);
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+        body { margin: 0; color: var(--text); background: var(--paper); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         a { color: inherit; text-decoration: none; }
-        .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
-
-        /* Navigazione */
-        nav {
-            position: fixed;
-            inset: 0 0 auto;
-            z-index: 10;
-            background: rgba(16, 28, 44, .94);
-            border-bottom: 1px solid rgba(255,255,255,.1);
-            backdrop-filter: blur(14px);
-        }
-        .nav-container {
-            width: min(1120px, calc(100% - 48px));
-            min-height: 76px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-        .logo { color: #fff; font-family: var(--serif); font-size: 1.15rem; letter-spacing: .02em; }
-        .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: rgba(255,255,255,.8); font-size: .88rem; transition: color .2s ease; }
+        .container { width: min(1080px, calc(100% - 40px)); margin-inline: auto; }
+        nav { position: sticky; top: 0; z-index: 5; background: rgba(16, 28, 44, .96); border-bottom: 1px solid rgba(255,255,255,.1); }
+        .nav-container { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .logo { color: white; font: 1.1rem var(--serif); }
+        .nav-links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { color: rgba(255,255,255,.82); font-size: .88rem; }
         .nav-links a:hover, .nav-links a:focus-visible { color: #e4c99f; }
-
-        /* Apertura */
-        #hero {
-            min-height: 700px;
-            padding: 145px 0 100px;
-            color: #fff;
-            background:
-                radial-gradient(ellipse at 82% 25%, rgba(180,139,85,.22), transparent 34%),
-                linear-gradient(125deg, #101c2c 0%, #1c3047 68%, #24394e 100%);
-        }
-        .hero-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(250px, .7fr); align-items: center; gap: 70px; }
-        .eyebrow { color: #e2c89f; font-size: .76rem; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
-        .hero-content h1 { max-width: 760px; margin: 16px 0 18px; font: 500 clamp(2.8rem, 6vw, 5rem)/1.04 var(--serif); letter-spacing: -.035em; }
-        .hero-subtitle { margin: 0 0 22px; color: #e3c89e; font-size: 1.1rem; letter-spacing: .02em; }
-        .hero-description { max-width: 660px; margin: 0 0 32px; color: rgba(255,255,255,.76); font-size: 1.04rem; }
-        .cta-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 1px solid #d5b887; color: #fff; font-size: .9rem; font-weight: 600; transition: background .2s, color .2s, transform .2s; }
-        .cta-btn:hover { color: var(--ink); background: #e4c99f; transform: translateY(-2px); }
-        .profile-frame { width: min(100%, 310px); aspect-ratio: 1; margin: auto; padding: 10px; border: 1px solid rgba(228,201,159,.6); border-radius: 50%; box-shadow: 0 0 0 14px rgba(255,255,255,.025), 0 22px 65px rgba(0,0,0,.22); }
-        .profile-placeholder { width: 100%; height: 100%; display: grid; place-content: center; border: 1px dashed rgba(255,255,255,.28); border-radius: 50%; color: rgba(255,255,255,.75); text-align: center; font-family: var(--serif); font-size: 1.1rem; }
-        .profile-placeholder span { display: block; margin-top: 8px; color: #e2c89f; font: .72rem var(--sans); letter-spacing: .08em; text-transform: uppercase; }
-
-        /* Sezioni */
-        section.content-section { padding: 100px 0; }
-        .section-heading { margin: 0 auto 50px; text-align: center; }
+        #hero { color: white; background: radial-gradient(ellipse at 82% 25%, rgba(180,139,85,.22), transparent 34%), linear-gradient(125deg, #101c2c, #24394e); padding: 76px 0; }
+        .hero-layout { display: grid; grid-template-columns: 1.4fr .7fr; align-items: center; gap: 64px; }
+        .eyebrow { color: #d7b986; font-size: .76rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+        h1 { margin: 14px 0; font: 500 clamp(2.6rem, 6vw, 4.7rem)/1.08 var(--serif); letter-spacing: -.03em; }
+        .hero-subtitle { color: #e3c89e; font-size: 1.08rem; }
+        .hero-description { max-width: 650px; color: rgba(255,255,255,.78); }
+        .cta { display: inline-block; margin-top: 12px; padding: 11px 22px; border: 1px solid #d5b887; color: white; }
+        .cta:hover { color: var(--ink); background: #e4c99f; }
+        .profile-frame { width: min(100%, 300px); aspect-ratio: 1; margin: auto; padding: 9px; border: 1px solid rgba(228,201,159,.65); border-radius: 50%; box-shadow: 0 0 0 12px rgba(255,255,255,.035), 0 22px 65px rgba(0,0,0,.24); }
+        .profile-photo { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center; }
+        section.content-section { padding: 78px 0; }
+        .section-heading { margin: 0 auto 38px; text-align: center; }
         .section-heading .eyebrow { color: var(--accent); }
-        .section-title { margin: 10px 0 0; color: var(--ink); font: 500 clamp(2.15rem, 4vw, 3.2rem)/1.15 var(--serif); letter-spacing: -.025em; }
-        .section-title::after { content: ''; display: block; width: 48px; height: 2px; margin: 20px auto 0; background: var(--accent); }
-        #about .bio-copy { max-width: 850px; margin-inline: auto; }
-        .bio-text { margin: 0 0 22px; color: #526174; font-size: 1.03rem; text-align: left; }
-        .badges-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 38px auto 0; }
-        .badge-tag { padding: 8px 14px; border: 1px solid #ddcfb9; border-radius: 2px; background: rgba(255,254,250,.72); color: #66543b; font-size: .81rem; }
-
-        /* Competenze */
+        .section-title { margin: 8px 0 0; color: var(--ink); font: 500 clamp(2rem, 4vw, 2.8rem)/1.2 var(--serif); }
+        .section-title::after { content: ''; display: block; width: 46px; height: 2px; margin: 16px auto 0; background: var(--accent); }
+        .bio-copy { max-width: 850px; margin: auto; }
+        .bio-text { color: #526174; }
+        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+        .badge { padding: 7px 12px; border: 1px solid #ddcfb9; background: var(--surface); color: #66543b; font-size: .82rem; }
         #skills { background: var(--surface); }
-        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-        .skill-card { min-height: 245px; padding: 28px 23px; border: 1px solid var(--line); background: #fff; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-        .skill-card:hover { transform: translateY(-5px); border-color: #c9ad82; box-shadow: var(--shadow); }
-        .skill-icon { margin-bottom: 18px; color: var(--accent); font-size: 1.75rem; }
-        .skill-card h3 { margin: 0 0 10px; color: var(--ink); font: 600 1.18rem var(--serif); }
-        .skill-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.7; }
-
-        /* Percorso */
-        .timeline { position: relative; max-width: 920px; margin: 0 auto; }
-        .timeline::before { content: ''; position: absolute; top: 8px; bottom: 8px; left: 50%; width: 1px; background: #d7c8b0; }
-        .timeline-item { position: relative; width: 50%; padding: 0 38px 28px 0; }
-        .timeline-item.right { margin-left: 50%; padding: 0 0 28px 38px; }
-        .timeline-item::before { content: ''; position: absolute; top: 22px; right: -5px; width: 9px; height: 9px; border: 2px solid var(--paper); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-        .timeline-item.right::before { right: auto; left: -5px; }
-        .timeline-content { padding: 25px 27px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 8px 25px rgba(17,35,54,.04); }
-        .timeline-date { margin-bottom: 7px; color: #9a7541; font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-        .timeline-content h3 { margin: 0 0 4px; color: var(--ink); font: 600 1.2rem var(--serif); }
-        .timeline-subtitle { margin-bottom: 12px; color: #8a6c45; font-size: .87rem; font-weight: 600; }
-        .timeline-content p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.7; }
-
-        /* Contatti e piè di pagina */
-        #contact { color: #fff; background: var(--ink); }
-        #contact .section-title { color: #fff; }
-        #contact .section-heading .eyebrow { color: #e2c89f; }
-        .contact-container { display: flex; flex-direction: column; align-items: center; gap: 25px; text-align: center; }
-        .contact-text { max-width: 650px; margin: 0; color: rgba(255,255,255,.72); }
-        .email-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        .email-link { color: #fff; font: 500 clamp(1.25rem, 3vw, 1.8rem) var(--serif); transition: color .2s; }
+        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .skill-card { padding: 24px 20px; border: 1px solid var(--line); background: white; }
+        .skill-icon { color: var(--accent); font-size: 1.6rem; }
+        .skill-card h3, .timeline h3 { color: var(--ink); font-family: var(--serif); }
+        .skill-card p, .timeline p { color: var(--muted); font-size: .9rem; }
+        .timeline { max-width: 850px; margin: auto; border-left: 1px solid #d7c8b0; padding-left: 28px; }
+        .timeline-item { position: relative; padding: 0 0 24px; }
+        .timeline-item::before { content: ''; position: absolute; top: 8px; left: -33px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--paper); }
+        .timeline-date { color: #9a7541; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+        .timeline h3 { margin: 4px 0; }
+        #contact { color: white; background: var(--ink); }
+        #contact .section-title { color: white; }
+        #contact .eyebrow { color: #e2c89f; }
+        .contact-container { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+        .contact-text, .location, .phone { color: rgba(255,255,255,.72); }
+        .email-link { color: white; font: 1.45rem var(--serif); }
         .email-link:hover { color: #e2c89f; }
-        .pec-text { padding: 5px 12px; border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.75); font-size: .88rem; }
-        .phone { color: rgba(255,255,255,.72); font-size: .9rem; }
-        .location { max-width: 500px; margin: 0; color: rgba(255,255,255,.65); font-size: .88rem; }
-        .social-links { display: flex; gap: 12px; margin-top: 5px; }
-        .social-icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: .78rem; font-weight: 700; transition: color .2s, background .2s, border-color .2s; }
-        .social-icon:hover { border-color: #e2c89f; color: var(--ink); background: #e2c89f; }
-        footer { padding: 23px; border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.58); background: #101c2c; text-align: center; font-size: .82rem; }
+        .pec-text { color: rgba(255,255,255,.75); font-size: .9rem; }
+        footer { padding: 20px; color: rgba(255,255,255,.58); background: #101c2c; text-align: center; font-size: .82rem; }
         footer p { margin: 0; }
-
-        @media (max-width: 850px) {
-            .hero-layout { grid-template-columns: 1fr; gap: 50px; text-align: center; }
-            #hero { min-height: auto; padding: 130px 0 82px; }
-            .hero-content h1, .hero-description { margin-inline: auto; }
-            .hero-subtitle { font-size: 1rem; }
+        @media (max-width: 800px) {
+            .hero-layout { grid-template-columns: 1fr; gap: 38px; text-align: center; }
+            .hero-description { margin-inline: auto; }
             .profile-frame { width: 230px; }
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 600px) {
-            .container, .nav-container { width: min(100% - 34px, 1120px); }
-            .nav-container { min-height: 66px; }
-            .logo { font-size: 1rem; }
-            .nav-links { gap: 13px; }
-            .nav-links a { font-size: .75rem; }
-            section.content-section { padding: 74px 0; }
-            .section-heading { margin-bottom: 38px; }
+        @media (max-width: 560px) {
+            .container { width: min(100% - 32px, 1080px); }
+            .nav-container { min-height: 62px; flex-wrap: wrap; justify-content: center; padding: 10px 0; }
+            .logo { width: 100%; text-align: center; }
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: .76rem; }
+            #hero { padding: 55px 0; }
+            section.content-section { padding: 60px 0; }
             .skills-grid { grid-template-columns: 1fr; }
-            .skill-card { min-height: 0; }
-            .timeline::before { left: 8px; }
-            .timeline-item, .timeline-item.right { width: 100%; margin-left: 0; padding: 0 0 22px 30px; }
-            .timeline-item::before, .timeline-item.right::before { top: 22px; right: auto; left: 4px; }
-            .timeline-content { padding: 21px; }
-            .bio-text { font-size: .96rem; }
+            .email-link { font-size: 1.2rem; }
         }
-        @media (max-width: 390px) {
-            .nav-links { gap: 9px; }
-            .nav-links a { font-size: .69rem; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
 </head>
 <body>
     <nav aria-label="Navigazione principale">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="#hero" class="logo">Gennaro Cosimo Cesaria</a>
             <ul class="nav-links">
                 <li><a href="#about">Profilo</a></li>
@@ -174,90 +101,72 @@
             </ul>
         </div>
     </nav>
-
     <header id="hero">
         <div class="container hero-layout">
-            <div class="hero-content">
+            <div>
                 <span class="eyebrow">Profilo professionale</span>
                 <h1>Gennaro Cosimo Cesaria</h1>
                 <p class="hero-subtitle">Vice Comandante della Polizia Locale · Sociologo</p>
                 <p class="hero-description">Elevata Qualificazione Professionale nell'Amministrazione Pubblica. Coniugo l'esperienza sul campo nella sicurezza e vigilanza urbana con solide competenze sociologiche, analisi delle dinamiche sociali e innovazione digitale applicata alla Pubblica Amministrazione.</p>
-                <a href="#contact" class="cta-btn">Entra in contatto</a>
+                <a href="#contact" class="cta">Entra in contatto</a>
             </div>
-            <div class="profile-frame" aria-label="Spazio riservato alla foto profilo">
-                <div class="profile-placeholder">Gennaro C. Cesaria<span>Foto profilo</span></div>
+            <div class="profile-frame">
+                <img class="profile-photo" src="FB_IMG_1780564043564.jpg" alt="Foto profilo di Gennaro Cosimo Cesaria">
             </div>
         </div>
     </header>
-
     <main>
         <section id="about" class="content-section">
             <div class="container">
                 <div class="section-heading"><span class="eyebrow">Esperienza e valori</span><h2 class="section-title">Biografia professionale</h2></div>
                 <div class="bio-copy">
-                    <p class="bio-text">Dal 1997 opero nel settore della sicurezza pubblica e dell’amministrazione locale. Ho iniziato la mia carriera presso il Comune di Fasano e, dal 2006, presto servizio presso il Comune di Carovigno, dove ricopro attualmente il ruolo di Vice Comandante del Corpo di Polizia Locale. Nel corso di quasi trent’anni di attività ho maturato una solida esperienza nella sicurezza urbana, nella vigilanza del territorio e nella gestione di attività e procedimenti amministrativi, assumendo incarichi di crescente responsabilità.</p>
-                    <p class="bio-text">Il mio percorso professionale è affiancato da una formazione in sociologia, con particolare approfondimento dei temi del crimine e della devianza. Questa prospettiva, insieme all’esperienza maturata sul campo, mi consente di leggere con attenzione le dinamiche sociali, le criticità territoriali e i bisogni della comunità.</p>
-                    <p class="bio-text">In ambito sociale ho collaborato con l’associazione A.V.U.L.S.S. come relatore sul tema della genitorialità, partecipando a incontri organizzati nelle scuole secondarie di secondo grado. Per l’attività svolta ho ricevuto una lettera di merito da parte dell’associazione, riconoscimento del contributo offerto alla riflessione su temi educativi e sociali.</p>
-                    <p class="bio-text">Ritengo che competenza, senso di responsabilità e attenzione alle persone siano elementi essenziali per una Pubblica Amministrazione moderna ed efficace. A questi principi affianco l’impegno nell’aggiornamento professionale e l’interesse per l’innovazione e la digitalizzazione dei servizi pubblici, con l’obiettivo di contribuire a una gestione della sicurezza e dell’amministrazione sempre più vicina alle esigenze della comunità.</p>
+                    <p class="bio-text">Dal 1997 opero nel settore della sicurezza pubblica e dell’amministrazione locale. Ho iniziato la mia carriera presso il Comune di Fasano e, dal 2006, presto servizio presso il Comune di Carovigno, dove ricopro il ruolo di Vice Comandante del Corpo di Polizia Locale. Nel corso di quasi trent’anni di attività ho maturato esperienza nella sicurezza urbana, nella vigilanza del territorio e nella gestione di attività e procedimenti amministrativi.</p>
+                    <p class="bio-text">Il mio percorso professionale è affiancato da una formazione in sociologia, con particolare approfondimento dei temi del crimine e della devianza. Questa prospettiva, insieme all’esperienza sul campo, mi consente di leggere con attenzione le dinamiche sociali e i bisogni della comunità.</p>
+                    <p class="bio-text">In ambito sociale ho collaborato con l’associazione A.V.U.L.S.S. come relatore sul tema della genitorialità, partecipando a incontri organizzati nelle scuole secondarie. Ritengo che competenza, senso di responsabilità e attenzione alle persone siano elementi essenziali per una Pubblica Amministrazione moderna ed efficace.</p>
                 </div>
-                <div class="badges-container">
-                    <span class="badge-tag">Intelligenza Artificiale · Avanzato</span>
-                    <span class="badge-tag">Cybersicurezza P.A.</span>
-                    <span class="badge-tag">Open Data · Avanzato</span>
-                    <span class="badge-tag">Identità Digitale</span>
-                    <span class="badge-tag">Pilota remoto UAS · ENAC A1-A3</span>
+                <div class="badges">
+                    <span class="badge">Intelligenza Artificiale · Avanzato</span><span class="badge">Cybersicurezza P.A.</span><span class="badge">Open Data · Avanzato</span><span class="badge">Identità Digitale</span><span class="badge">Pilota remoto UAS · ENAC A1-A3</span>
                 </div>
             </div>
         </section>
-
         <section id="skills" class="content-section">
             <div class="container">
                 <div class="section-heading"><span class="eyebrow">Ambiti di attività</span><h2 class="section-title">Competenze e abilitazioni</h2></div>
                 <div class="skills-grid">
-                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">⚖</div><h3>Vigilanza e sicurezza</h3><p>Direzione operativa, coordinamento del Corpo di Polizia Locale, tecniche di controllo documentale (“Il Falso Documentale”) e gestione della Protezione Civile.</p></article>
-                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">◈</div><h3>Sociologia e criminologia</h3><p>Analisi sociologica e antropologica di crimine e devianza. Relatore in contesti scolastici e associativi (A.V.U.L.S.S.) sui temi della genitorialità e della prevenzione del disagio giovanile.</p></article>
-                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">⌘</div><h3>IT e digitalizzazione</h3><p>Qualifica di Programmatore, conoscenza dei software gestionali P.A., utilizzo consapevole dell’intelligenza artificiale, cybersicurezza e gestione dei dati.</p></article>
-                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">▤</div><h3>Amministrazione pubblica</h3><p>Gestione delle spese e delle entrate, procedimenti amministrativi, incarichi di Posizione Organizzativa e attività di Ufficiale di Riscossione.</p></article>
+                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">⚖</div><h3>Vigilanza e sicurezza</h3><p>Direzione operativa e coordinamento del Corpo di Polizia Locale, controllo documentale e Protezione Civile.</p></article>
+                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">◈</div><h3>Sociologia e criminologia</h3><p>Analisi sociologica e antropologica di crimine e devianza; interventi su genitorialità e prevenzione del disagio giovanile.</p></article>
+                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">⌘</div><h3>IT e digitalizzazione</h3><p>Qualifica di Programmatore, software gestionali P.A., intelligenza artificiale, cybersicurezza e gestione dei dati.</p></article>
+                    <article class="skill-card"><div class="skill-icon" aria-hidden="true">▤</div><h3>Amministrazione pubblica</h3><p>Gestione di spese ed entrate, procedimenti amministrativi, incarichi organizzativi e attività di ufficiale di riscossione.</p></article>
                 </div>
             </div>
         </section>
-
         <section id="experience" class="content-section">
             <div class="container">
                 <div class="section-heading"><span class="eyebrow">Il mio percorso</span><h2 class="section-title">Esperienze e formazione</h2></div>
                 <div class="timeline">
-                    <article class="timeline-item left"><div class="timeline-content"><div class="timeline-date">Dicembre 2025 – Oggi</div><h3>Vice Comandante · Categoria E.Q.</h3><div class="timeline-subtitle">Comune di Carovigno</div><p>Vincitore di concorso per progressione verticale nell’area ad Elevata Qualificazione Professionale (ex cat. D). Vice Comandante dal 2022.</p></div></article>
-                    <article class="timeline-item right"><div class="timeline-content"><div class="timeline-date">2026</div><h3>Specializzazione in I.A. e tecnologie</h3><div class="timeline-subtitle">Università del Salento · Funzione Pubblica</div><p>Ammissione al corso post-laurea “Prompting e Tecnologie I.A.”. Conseguimento del Badge Syllabus, livello avanzato, in Intelligenza Artificiale e Open Data.</p></div></article>
-                    <article class="timeline-item left"><div class="timeline-content"><div class="timeline-date">2021 – 2022</div><h3>Laurea magistrale e grado di Ispettore</h3><div class="timeline-subtitle">Università del Salento · Scuola Regionale P.L. Puglia</div><p>Laurea magistrale in Sociologia e Ricerca Sociale (104/110), con tesi di ricerca sul fenomeno mafioso. Avanzamento a Ispettore Superiore di Polizia Locale.</p></div></article>
-                    <article class="timeline-item right"><div class="timeline-content"><div class="timeline-date">2017</div><h3>Laurea in Sociologia</h3><div class="timeline-subtitle">Università del Salento</div><p>Laurea triennale in Sociologia, curriculum Crimine e Devianza (103/110). Tesi: “Devianza e normalità: un approccio antropologico”.</p></div></article>
-                    <article class="timeline-item left"><div class="timeline-content"><div class="timeline-date">2006 – 2022</div><h3>Agente e Sottufficiale di Polizia Locale</h3><div class="timeline-subtitle">Comune di Carovigno</div><p>Agente, Vice coordinatore del Servizio di Polizia Locale e, dal 2015, Sottufficiale. Responsabile di Posizione Organizzativa nei settori Randagismo, Polizia Locale e Protezione Civile (2020–2022).</p></div></article>
-                    <article class="timeline-item right"><div class="timeline-content"><div class="timeline-date">1997 – 2006</div><h3>Agente di Polizia Locale</h3><div class="timeline-subtitle">Comune di Fasano (BR)</div><p>Servizio operativo e di vigilanza nell’Area Vigilanza dell’Amministrazione comunale.</p></div></article>
-                    <article class="timeline-item left"><div class="timeline-content"><div class="timeline-date">1993 – 1997</div><h3>Ispettore · Responsabile Area Commerciale</h3><div class="timeline-subtitle">Vittoria Assicurazioni</div><p>Consulenza assicurativa e gestione dell’Area Commerciale presso le agenzie generali di Ferrara, Bari, Brindisi, Martina Franca e Taranto.</p></div></article>
+                    <article class="timeline-item"><div class="timeline-date">Dicembre 2025 – Oggi</div><h3>Vice Comandante · Categoria E.Q.</h3><p>Comune di Carovigno. Incarico di Elevata Qualificazione Professionale; Vice Comandante dal 2022.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">2026</div><h3>Specializzazione in I.A. e tecnologie</h3><p>Università del Salento · Funzione Pubblica. Corso post-laurea in Prompting e Tecnologie I.A.; badge Syllabus avanzato in Intelligenza Artificiale e Open Data.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">2021 – 2022</div><h3>Laurea magistrale e grado di Ispettore</h3><p>Laurea magistrale in Sociologia e Ricerca Sociale; avanzamento a Ispettore Superiore di Polizia Locale.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">2017</div><h3>Laurea in Sociologia</h3><p>Università del Salento. Curriculum Crimine e Devianza, con tesi su devianza e normalità in prospettiva antropologica.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">2006 – 2022</div><h3>Agente e Sottufficiale di Polizia Locale</h3><p>Comune di Carovigno. Agente, Vice coordinatore del Servizio e, dal 2015, Sottufficiale; responsabilità organizzative nei settori Randagismo, Polizia Locale e Protezione Civile.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">1997 – 2006</div><h3>Agente di Polizia Locale</h3><p>Comune di Fasano · Servizio operativo e vigilanza nell’Area Vigilanza dell’Amministrazione comunale.</p></article>
+                    <article class="timeline-item"><div class="timeline-date">1993 – 1997</div><h3>Ispettore · Responsabile Area Commerciale</h3><p>Vittoria Assicurazioni · Consulenza assicurativa e gestione dell’area commerciale.</p></article>
                 </div>
             </div>
         </section>
-
         <section id="contact" class="content-section">
             <div class="container">
                 <div class="section-heading"><span class="eyebrow">Restiamo in contatto</span><h2 class="section-title">Contatti istituzionali e privati</h2></div>
                 <div class="contact-container">
                     <p class="contact-text">Disponibile per collaborazioni istituzionali, interventi accademici, convegni o attività di consulenza legate alla sicurezza urbana e alla sociologia della devianza.</p>
-                    <div class="email-box">
-                        <a href="mailto:gennaro.cesaria@gmail.com" class="email-link">gennaro.cesaria@gmail.com</a>
-                        <span class="pec-text"><strong>P.E.C.:</strong> gennaro.cesaria@pec.it</span>
-                        <span class="phone">Tel: +39 338 650 7329</span>
-                    </div>
+                    <a href="mailto:gennaro.cesaria@gmail.com" class="email-link">gennaro.cesaria@gmail.com</a>
+                    <span class="pec-text"><strong>P.E.C.:</strong> gennaro.cesaria@pec.it</span>
+                    <span class="phone">Tel: +39 338 650 7329</span>
                     <p class="location">Carovigno (BR), Puglia · Nazionalità italiana</p>
-                    <div class="social-links" aria-label="Profili social">
-                        <a href="#" class="social-icon" title="LinkedIn" aria-label="LinkedIn">IN</a>
-                        <a href="#" class="social-icon" title="GitHub / Tech" aria-label="GitHub / Tech">IT</a>
-                        <a href="#" class="social-icon" title="Università" aria-label="Università">Uni</a>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer><p>&copy; 2026 Gennaro Cosimo Cesaria · Profilo professionale</p></footer>
 </body>
 </html>
